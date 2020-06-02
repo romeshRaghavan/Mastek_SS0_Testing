@@ -12,6 +12,15 @@
  var successMsgForCurrency = "Currency synchronized successfully.";
  var errorMsgForCurrency = "Currency not synchronized successfully.";
 
+ var AuthenticationContext;
+
+var authority = 'https://login.microsoftonline.com/';
+var resourceUrl = 'https://graph.windows.net/';
+var appId = 'f97ffe70-98ab-4a54-8413-70dfa5339ed2';
+var redirectUrl = 'https://expenzingmobileapp.com/portal/';
+var tenantName = 'add1c500-a6d7-4dbd-b890-7f8cb6f7d861';
+var endpointUrl = resourceUrl + tenantName;
+
  var app = {
      // Application Constructor
      initialize: function() {
@@ -22,7 +31,9 @@
      // Bind any events that are required on startup. Common events are:
      // 'load', 'deviceready', 'offline', and 'online'.
      bindEvents: function() {
-         document.addEventListener("deviceready", this.onDeviceReady, false);
+        document.addEventListener("deviceready", this.onDeviceReady, false);
+        document.addEventListener('deviceready', test(), false);
+        //document.getElementById('create-context').addEventListener('click', app.createContext);
      },
 
      onDeviceReady: function() {
@@ -43,7 +54,38 @@
          document.addEventListener('onSMSArrive', function(e) {
              saveIncomingSMSOnLocal(e);
          }, false);
-     }
+     },
+     log: function (message, isError) {
+        isError ? console.error(message) : console.log(message);
+        var logItem = document.createElement('li');
+        logItem.classList.add("topcoat-list__item");
+        isError && logItem.classList.add("error-item");
+        var timestamp = '<span class="timestamp">' + new Date().toLocaleTimeString() + ': </span>';
+        logItem.innerHTML = (timestamp + message);
+        //app.logArea.insertBefore(logItem, app.logArea.firstChild);
+    },
+    error: function (message) {
+        app.log(message, true);
+    },
+     createContext: function() {
+        AuthenticationContext.createAsync(authority)
+        .then(function (context) {
+            app.authContext = context;
+            app.log("Created authentication context for authority URL: " + context.authority);
+        }, app.error);
+    },
+    clearTokenCache: function () {
+        if (app.authContext == null) {
+            app.error('Authentication context isn\'t created yet. Create context first');
+            return;
+        }
+
+        app.authContext.tokenCache.clear().then(function () {
+            app.log("Cache cleaned up successfully.");
+        }, function (err) {
+            app.error("Failed to clear token cache: " + pre(err));
+        });
+    }
  };
 
  function goBack() {
@@ -150,6 +192,34 @@ function arrayRemove(arr, value) {
      }
  }
 
+function test() {
+        app.logArea = document.getElementById("log-area");
+        app.log("Cordova initialized, 'deviceready' event was fired");
+        redirect();
+        AuthenticationContext = new Microsoft.ADAL.AuthenticationContext(authority);
+        alert("AuthenticationContext :"+AuthenticationContext);
+        // app.receivedEvent('deviceready');
+    }
+
+function redirect(){
+
+var testurl = authority
+                + this.tenantName
+                + "/oauth2/authorize?response_type=code&scope=directory.read.all&response_mode=form_post&redirect_uri="
+                + encodeURI(redirectUrl) + "&client_id="
+                + appId + "&resource=https%3a%2f%2fgraph.microsoft.com"
+                + "&state=" + uuidv4()
+                + "&nonce=" + uuidv4();
+                alert(testurl);
+     window.location = testurl;           
+}
+
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
  //Local Database Create,Save,Display
 
  //Test for browser compatibility

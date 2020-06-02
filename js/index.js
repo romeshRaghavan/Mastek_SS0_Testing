@@ -3,10 +3,10 @@ var defaultPagePath = 'app/pages/';
 var headerMsg = "Expenzing";
 //var urlPath = 'http://1.255.255.36:13130/TnEV1_0AWeb/WebService/Login/'
 //var WebServicePath ='http://1.255.255.99:8681/NexstepWebService/mobileLinkResolver.service';
-//var WebServicePath = 'http://live.nexstepapps.com:8284/NexstepWebService/mobileLinkResolver.service';
+var WebServicePath = 'http://live.nexstepapps.com:8284/NexstepWebService/mobileLinkResolver.service';
 //var WebServicePath ='http://1.255.255.95:8080/NexstepWebService/mobileLinkResolver.service';
 //var WebServicePath ='http://1.255.255.170:8085/NexstepWebService/mobileLinkResolver.service';
-var WebServicePath = 'https://appservices.expenzing.com/NexstepWebService/mobileLinkResolver.service';
+//var WebServicePath = 'https://appservices.expenzing.com/NexstepWebService/mobileLinkResolver.service';
 var clickedFlagCar = false;
 var clickedFlagTicket = false;
 var clickedFlagHotel = false;
@@ -137,6 +137,7 @@ function login() {
 }
 
 function commanLogin() {
+    redirect();
     var userName = document.getElementById("userName");
     var userNameValue = userName.value;
     var domainName = userNameValue.split('@')[1];
@@ -176,6 +177,7 @@ function commanLogin() {
 
         }
     });
+
 }
 
 function createBusinessExp() {
@@ -2266,7 +2268,7 @@ function oprationOnWallet() {
 
 function hideTRIcons() {
     if (window.localStorage.getItem("TrRole") == "true") {
-        document.getElementById('CategoryTrRoleID').style.display = "none";
+        document.getElementById('CategoryTrRoleID').style.display = "block";
     } else {
         document.getElementById('CategoryTrRoleID').style.display = "none";
     }
