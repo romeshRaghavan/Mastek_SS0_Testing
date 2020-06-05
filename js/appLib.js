@@ -17,7 +17,7 @@
 var authority = 'https://login.microsoftonline.com/';
 var resourceUrl = 'https://graph.windows.net/';
 var appId = 'f97ffe70-98ab-4a54-8413-70dfa5339ed2';
-var redirectUrl = 'https://expenzingmobileapp.com/portal/';
+var redirectUrl = 'https://mymobileapp1234.com';
 var tenantName = 'add1c500-a6d7-4dbd-b890-7f8cb6f7d861';
 var endpointUrl = resourceUrl + tenantName;
 
