@@ -8,9 +8,9 @@
 //var deregisterUrl = "https://mysite.masteknet.com/ESSCommonTest/deregisteruser/"; //test
 
 var authority = 'https://login.microsoftonline.com/';
- resourceUri = 'https://graph.windows.net/';
- clientId = 'f97ffe70-98ab-4a54-8413-70dfa5339ed2';
- redirectUri = 'https://expenzingmobileapp.com/';
+ var resourceUri = 'https://graph.windows.net/';
+ var clientId = 'f97ffe70-98ab-4a54-8413-70dfa5339ed2';
+ var redirectUri = 'https://expenzingmobileapp.com/';
   
 //var tenantName = 'add1c500-a6d7-4dbd-b890-7f8cb6f7d861c';
 ////Test SetUp
