@@ -12,21 +12,12 @@ var appPageHistory = [];
  var successMsgForCurrency = "Currency synchronized successfully.";
  var errorMsgForCurrency = "Currency not synchronized successfully.";
 
- var AuthenticationContext;
+ //var AuthenticationContext;
 
 /*var authority = 'https://login.microsoftonline.com/';
 var resourceUrl = 'https://graph.windows.net/';
 var appId = 'f97ffe70-98ab-4a54-8413-70dfa5339ed2';
 var redirectUrl = 'http://ESSMobile';*/
-
-var tenantName = 'add1c500-a6d7-4dbd-b890-7f8cb6f7d861';
-var endpointUrl = resourceUrl + tenantName;
-
-var authority = "https://login.windows.net/mastekgroup.onmicrosoft.com/";
-var redirectUrl = "http://ESSMobile";
-//var resourceUrl = "https://MastekGroup.onmicrosoft.com/ESSCommonMicroServices";   
-    var resourceUrl = 'https://graph.windows.net/';
-var appId = "8619acfa-a9c7-4d8c-b909-52002c627748";
 
  var app = {
      // Application Constructor
