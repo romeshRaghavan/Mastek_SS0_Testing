@@ -35,6 +35,7 @@ var auth = {
     //Sign in user
     signIn: function ()
     {
+      alert("1");
         auth.authenticate(function (authresult) {
 
             localStorage.OauthToken = authresult.accessToken;
@@ -46,8 +47,9 @@ var auth = {
    
     //ADAL Authentication
     authenticate: function (authCompletedCallback) {
-       
+       alert("2");
         auth.context = new Microsoft.ADAL.AuthenticationContext(authority);
+      alert("context: "+auth.context);
         auth.context.tokenCache.readItems().then(function (items) {
          
             if (items.length > 0) {
