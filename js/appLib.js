@@ -29,13 +29,14 @@ var redirectUrl = 'http://ESSMobile';*/
      // Bind any events that are required on startup. Common events are:
      // 'load', 'deviceready', 'offline', and 'online'.
      bindEvents: function() {
-        document.addEventListener("deviceready", this.onDeviceReady, false);
+        //document.addEventListener("deviceready", this.onDeviceReady, false);
+      document.addEventListener("deviceready", auth.signIn, false);
         //document.getElementById('create-context').addEventListener('click', app.createContext);
      },
 
      onDeviceReady: function() {
 
-           auth.signIn();
+           //auth.signIn();
            
          if (navigator.notification) { // Override default HTML alert with native dialog
              window.alert = function(message) {
