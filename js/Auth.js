@@ -47,9 +47,16 @@ var auth = {
    
     //ADAL Authentication
     authenticate: function (authCompletedCallback) {
-       alert("2");
+       try{
+            alert("99");
         auth.context = new Microsoft.ADAL.AuthenticationContext(authority);
-      alert("context: "+auth.context);
+        //alert("context :"+auth.context);
+        }
+       
+        catch(e){
+            alert(e);
+          console.log(e)
+        }
         auth.context.tokenCache.readItems().then(function (items) {
          
             if (items.length > 0) {
