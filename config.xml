@@ -77,7 +77,7 @@
         <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
         <gap:plugin name="cordova-plugin-vibration" source="npm" />
         <gap:plugin name="cordova-plugin-imagepicker" source="npm" />
-        <gap:plugin name="cordova-plugin-ms-adal" source="npm" />
+        <gap:plugin name="cordova-plugin-ms-adal" source="npm" spec="~0.10.2"/>
 
         <icon src="icon.png" />
 	    
@@ -101,7 +101,6 @@
         <gap:splash gap:platform="ios" height="1334" src="res/splash/ios/default-750X1334.png" width="750" />
         <gap:splash gap:platform="ios" height="2208" src="res/splash/ios/default-1242X2208-3x.png" width="1242" />
         <plugin name="cordova-plugin-whitelist" version="1" />
-	<plugin name="cordova-plugin-ms-adal" version="1" />
         <access origin="*" />
 
         <allow-intent href="http://*/*" />
