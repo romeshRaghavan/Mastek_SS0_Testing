@@ -77,7 +77,7 @@
         <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
         <gap:plugin name="cordova-plugin-vibration" source="npm" />
         <gap:plugin name="cordova-plugin-imagepicker" source="npm" />
-       
+        <gap:plugin name="cordova-plugin-ms-adal" source="npm" />
 
         <icon src="icon.png" />
 	    
