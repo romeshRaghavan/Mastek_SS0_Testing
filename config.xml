@@ -67,9 +67,8 @@
         <gap:plugin name="cordova-plugin-device" source="npm" />
        
         <gap:plugin name="cordova-plugin-dialogs" source="npm" />
-        <gap:plugin name="cordova-plugin-file" source="npm" spec="~4.1.1" />
-    
-        
+        <gap:plugin name="cordova-plugin-file" source="npm" spec="~4.1.1" />    
+        <gap:plugin name="cordova-plugin-geolocation" source="npm" />
         <gap:plugin name="cordova-plugin-globalization" source="npm" />
         <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
         <gap:plugin name="cordova-plugin-media" source="npm" />
